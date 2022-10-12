@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError, of } from 'rxjs';
+import { mergeMap} from 'rxjs/operators'
 
-const AUTH_API = 'http://localhost:8080/api/auth/';
+const AUTH_API = 'http://localhost:2900/voting/authorise/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -21,11 +22,14 @@ export class AuthService {
     }, httpOptions);
   }
 
-  register(username: string, email: string, password: string): Observable<any> {
-    return this.http.post(AUTH_API + 'signup', {
-      username,
-      email,
-      password
-    }, httpOptions);
+  register(signUpForm:any): Observable<any> {
+    return this.http.post(AUTH_API + 'signUp', JSON.stringify(signUpForm), httpOptions).
+      pipe(mergeMap(v=> {
+        console.log("in service-----", v)
+        if(v === null){
+          return throwError('v is null');  
+        } else {
+             return of(v)
+        } }))
   }
 }

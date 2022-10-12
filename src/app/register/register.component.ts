@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -8,32 +10,62 @@ import { AuthService } from '../_services/auth.service';
 })
 export class RegisterComponent implements OnInit {
   form: any = {
-    username: null,
-    email: null,
-    password: null
+    firstName: null,
+    lastName:null,
+    userName: null,
+    password: null,
+    confirmPassword: null,
   };
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
-
-  constructor(private authService: AuthService) { }
+  signUpForm = FormGroup;
+ 
+  constructor(private authService: AuthService,  private fb: FormBuilder, private router:Router) { }
 
   ngOnInit(): void {
+    // this.signUpForm!:FormGroup;
+    this.formBuilder();
   }
 
   onSubmit(): void {
-    const { username, email, password } = this.form;
-
-    this.authService.register(username, email, password).subscribe(
-      data => {
-        console.log(data);
-        this.isSuccessful = true;
-        this.isSignUpFailed = false;
+    console.log('in onsubmit')
+    let data = this.formBuilder();
+    this.authService.register(data.value).subscribe({
+      next: (res) => {
+        console.log(res);
+        if(res === "Sign up Sucess") {
+          this.isSuccessful = true;
+          this.router.navigate(['/home']);
+        } else {
+          this.isSignUpFailed = false;
+        }
       },
-      err => {
-        this.errorMessage = err.error.message;
-        this.isSignUpFailed = true;
+      error: (err) => {
+        console.log("err-----", err)
+        this.errorMessage = err.error.text;
+        if(this.errorMessage === "Sign up Sucess") {
+          this.isSuccessful = true;
+          this.router.navigate(['/home']);
+        } else {
+          this.isSignUpFailed = false;
+        }
+      },
+      complete: () =>{
+
       }
-    );
+    })
+  }
+
+  formBuilder() {
+    const { firstName, lastName, userName, password, confirmPassword } = this.form;
+    return (this.fb.group({
+        userName: userName,            
+        firstName: firstName,
+        lastName: lastName,
+        password: password,
+        confirmPassword: confirmPassword,
+        isIndividual: true,
+    }));
   }
 }
