@@ -1,0 +1,11 @@
+.mainMenuChoice{
+    display: flex;
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: 50px;
+}
+
+.menuItem{
+    width: 45%;
+    cursor: pointer;
+}
