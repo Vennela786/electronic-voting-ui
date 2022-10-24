@@ -1,5 +1,13 @@
 .title {
     text-align: center;
-    text-decoration: underline;
     font-size: xx-large;
+    margin-top: -55px;
+    color: black;
 }
+
+.homeContainer {  
+    background-image: url("../../assets/e-voting.jpg");
+    background-color: #cccccc;
+    width: 100vw;
+    height: 100vh;
+  }

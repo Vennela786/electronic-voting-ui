@@ -9,6 +9,10 @@ label {
   padding: 40px 40px;
 }
 
+.form-group{
+    color: white;
+}
+
 .card {
   background-color: #b200ff;
   padding: 20px 25px 30px;
