@@ -17,6 +17,8 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { CreateBallotComponent } from './create-ballot/create-ballot.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 
+import { AppGlobals } from './global/global-config';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,7 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders, AppGlobals],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
