@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build:
+  build-frontend:
     docker:
       - image: cimg/node:19.0.0
 
