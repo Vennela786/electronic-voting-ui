@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
     this.authService.register(data.value).subscribe({
       next: (res) => {
         console.log(res);
-        if(res === "Sign up Sucess") {
+        if(res) {
           this.isSuccessful = true;
           this.router.navigate(['/home']);
         } else {
@@ -43,12 +43,10 @@ export class RegisterComponent implements OnInit {
       },
       error: (err) => {
         console.log("err-----", err)
-        this.errorMessage = err.error.text;
-        if(this.errorMessage === "Sign up Sucess") {
-          this.isSuccessful = true;
-          this.router.navigate(['/home']);
+        if(err.error.message) {
+          this.errorMessage = err.error.message
         } else {
-          this.isSignUpFailed = false;
+          this.errorMessage = err.error.errorDefinition.message;
         }
       },
       complete: () =>{
