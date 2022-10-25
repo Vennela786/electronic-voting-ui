@@ -37,7 +37,7 @@
     <div
       class="alert alert-danger"
       role="alert"
-      *ngIf="f.submitted && isPollCreationFailed"
+      *ngIf="isPollCreationFailed"
     >
       Poll creation failed: {{ errorMessage }}
     </div>
