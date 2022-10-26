@@ -10,7 +10,7 @@ label {
 }
 
 .card {
-  background-color: #f6d080;
+  background-color: #80d3f6;
   padding: 20px 25px 30px;
   margin: 0 auto 25px;
   margin-top: 50px;
@@ -34,4 +34,10 @@ label {
 
 .name-width{
   width:50% !important
+}
+
+.title {
+    font-size: x-large;
+    padding-bottom: 5px;
+    font-family: serif;
 }
