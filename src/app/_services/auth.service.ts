@@ -15,11 +15,15 @@ const httpOptions = {
 export class AuthService {
   constructor(private http: HttpClient) { }
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post(AUTH_API + 'signin', {
-      username,
-      password
-    }, httpOptions);
+  login(loginForm: any): Observable<any> {
+    return this.http.post(AUTH_API + 'signIn', JSON.stringify(loginForm), httpOptions).
+      pipe(mergeMap(v=> {
+        console.log("in service-----", v)
+        if(v === null){
+          return throwError('v is null');  
+        } else {
+             return of(v)
+        } }))
   }
 
   register(signUpForm:any): Observable<any> {

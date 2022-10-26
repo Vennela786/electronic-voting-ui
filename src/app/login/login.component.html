@@ -1,11 +1,7 @@
 <div class="col-md-12">
   <div class="home">
   <div class="card card-container">
-    <img
-      id="profile-img"
-      src="../../assets/home.jpg"
-      class="profile-img-card"
-    />
+    <strong class="title">LOGIN</strong>
     <form
       *ngIf="!isLoggedIn"
       name="form"
@@ -39,7 +35,6 @@
           name="password"
           [(ngModel)]="form.password"
           required
-          minlength="6"
           #password="ngModel"
         />
         <div

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { PollService } from '../_services/poll.service'
+import { AppGlobals } from '../global/global-config'
 
 @Component({
   selector: 'app-create-ballot',
@@ -16,7 +17,11 @@ export class CreateBallotComponent implements OnInit {
     endDate: new FormControl('')
   })
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  errorMessage = '';
+  isPollCreationFailed = false;
+
+  constructor(private fb: FormBuilder, private router: Router, private pollService: PollService,
+      private appGlobals: AppGlobals) { }
 
   ngOnInit(): void {
     this.formBuilder();
@@ -42,11 +47,26 @@ export class CreateBallotComponent implements OnInit {
     })
   }
   onSubmit() {
-
-    console.log(this.balletform.value)
-    this.balletform.reset()
-    this.router.navigate(['/menu']);
-
+    this.pollService.create(this.balletform.value, this.appGlobals.loginUserDetail.loginId).subscribe({
+      next: (res) => {
+        console.log('next-------',res);
+        if(res) {
+          this.router.navigate(['/menu']);
+        }
+      },
+      error: (err) => {
+        console.log("err-----", err)
+        this.isPollCreationFailed = true;
+        if(err.error.message) {
+          this.errorMessage = err.error.message
+        } else {
+          this.errorMessage = err.error.errorDefinition.message;
+        }
+      },
+      complete: () =>{
+        this.balletform.reset()
+      }
+    })
   }
 
 }
