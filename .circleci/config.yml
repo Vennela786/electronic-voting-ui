@@ -19,7 +19,9 @@ jobs:
          name: Building the source code
          command: |
             sudo apt update
-            sudo apt install chromium-browser -y
+            sudo apt install snapd
+            sudo snap refresh
+            sudo snap install chromium-browser -y
             export CHROME_BIN='/usr/bin/chromium-browser'
             npm test --no-watch --no-progress --browsers=ChromeHeadless
 
