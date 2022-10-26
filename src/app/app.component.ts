@@ -12,6 +12,7 @@ export class AppComponent {
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
+  title: string = "Electronic Voting"
 
   constructor(private tokenStorageService: TokenStorageService) { }
 
