@@ -15,6 +15,10 @@ jobs:
          name: Building the source code
          command: npm run build
 
+      - run:
+         name: Building the source code
+         command: npm run test
+
       - store_artifacts:
          path: /home/circleci/project/dist/electronic-voting-ui/
          destination: electronic-voting-ui
