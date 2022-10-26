@@ -5,9 +5,11 @@
     color: black;
 }
 
-.homeContainer {  
-    background-image: url("../../assets/e-voting.jpg");
-    background-color: #cccccc;
-    width: 100vw;
-    height: 100vh;
-  }
+.container {
+  background-image: url("../../assets/home.jpg");
+  background-color: #cccccc;
+  background-size: auto;
+  background-position:center;
+  width: 100vw;
+  height: 100vh;
+}
