@@ -18,7 +18,8 @@ jobs:
       - run:
          name: Building the source code
          command: |
-            sudo apk add chromium
+            sudo apt update
+            sudo apt install chromium-browser -y
             export CHROME_BIN='/usr/bin/chromium-browser'
             npm test --no-watch --no-progress --browsers=ChromeHeadless
 
