@@ -15,17 +15,17 @@ jobs:
          name: Building the source code
          command: npm run build
 
-      - run:
-         name: Building the source code
-         command: |
-            sudo apt update
-            sudo apt install snapd
-            sudo systemctl enable snapd.service
-            sudo systemctl start snapd.service
-            sudo snap refresh
-            sudo snap install chromium-browser -y
-            export CHROME_BIN='/usr/bin/chromium-browser'
-            npm test --no-watch --no-progress --browsers=ChromeHeadless
+#      - run:
+#         name: Building the source code
+#         command: |
+#            sudo apt update
+#            sudo apt install snapd
+#            sudo systemctl enable snapd.service
+#            sudo systemctl start snapd.service
+#            sudo snap refresh
+#            sudo snap install chromium-browser -y
+#            export CHROME_BIN='/usr/bin/chromium-browser'
+#            npm test --no-watch --no-progress --browsers=ChromeHeadless
 
       - store_artifacts:
          path: /home/circleci/project/dist/electronic-voting-ui/
