@@ -6,6 +6,8 @@ jobs:
 
     steps:
       - checkout
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
 
       - run:
          name: Installing dependencies 
@@ -14,6 +16,9 @@ jobs:
       - run:
          name: Building the source code
          command: npm run build
+      
+
+      - run: npm run test
 
 #      - run:
 #         name: Building the source code
