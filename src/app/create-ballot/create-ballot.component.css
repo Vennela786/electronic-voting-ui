@@ -13,3 +13,14 @@
 .ballotButton {
   margin-left: 30px;
 }
+
+.design {
+  border: 1px solid;
+  /* padding-right: 30px; */
+  border-radius: 10px;
+  background-color: #edefd9;
+}
+
+.label_text {
+  text-align: center !important;
+}
