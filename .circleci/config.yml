@@ -17,7 +17,7 @@ jobs:
 
       - run:
          name: Building the source code
-         command: npm run test
+         command: npm test --no-watch --no-progress --browsers=ChromeHeadless
 
       - store_artifacts:
          path: /home/circleci/project/dist/electronic-voting-ui/
