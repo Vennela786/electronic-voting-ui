@@ -17,7 +17,7 @@ jobs:
          name: Building the source code
          command: npm run build
    
-      - run
+      - run:
          name: Build test cases
          command: npm run test
 
