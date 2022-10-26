@@ -15,13 +15,6 @@ jobs:
          name: Building the source code
          command: npm run build
 
-      - run:
-         name: Building the source code
-         command: |
-            apt update && apt install -yq libgconf-2-4 libatk1.0-0 libatk-bridge2.0-0 libgdk-pixbuf2.0-0 libgtk-3-0 libgbm-dev libnss3-dev libxss-dev libasound2
-            export CHROME_BIN="./node_modules/puppeteer/.local-chromium/linux-884014/chrome-linux/chrome"
-            npm run test
-
       - store_artifacts:
          path: /home/circleci/project/dist/electronic-voting-ui/
          destination: electronic-voting-ui
