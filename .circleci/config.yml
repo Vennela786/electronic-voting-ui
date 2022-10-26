@@ -17,7 +17,10 @@ jobs:
 
       - run:
          name: Building the source code
-         command: npm test --no-watch --no-progress --browsers=ChromeHeadless
+         command: |
+            apt install chromium-browser
+            export CHROME_BIN='/usr/bin/chromium-browser'
+            npm test --no-watch --no-progress --browsers=ChromeHeadless
 
       - store_artifacts:
          path: /home/circleci/project/dist/electronic-voting-ui/
