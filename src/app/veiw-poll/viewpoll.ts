@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { emitDistinctChangesOnlyDefaultValue } from '@angular/compiler';
 
 @Component({
   selector: 'view-polls',
@@ -10,6 +11,12 @@ import { BrowserModule } from '@angular/platform-browser';
   styleUrls: ['./veiw-poll.css']
 })
 export class ViewPollsComponent implements OnInit {
+  constructor(private router: Router) { }
+  editPoll(): void {
+    //console.log('editpoll')
+    this.router.navigate(['/edit']);
+  } 
+
 
    viewPollMock : any[]= [
     {

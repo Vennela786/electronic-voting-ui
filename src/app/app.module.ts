@@ -19,6 +19,7 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { ViewPollsComponent } from './veiw-poll/viewpoll';
 
 import { AppGlobals } from './global/global-config';
+import { EditPollComponent } from './edit-poll/edit-poll';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AppGlobals } from './global/global-config';
     BoardUserComponent,
     CreateBallotComponent,
     MainMenuComponent,
-    ViewPollsComponent
+    ViewPollsComponent,
+    EditPollComponent
   ],
   imports: [
     BrowserModule,

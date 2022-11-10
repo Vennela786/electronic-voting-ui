@@ -12,6 +12,7 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { CreateBallotComponent } from './create-ballot/create-ballot.component'
 import { ViewPollsComponent } from './veiw-poll/viewpoll';
 import { BrowserModule } from '@angular/platform-browser';
+import { EditPollComponent } from './edit-poll/edit-poll';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'menu', component: MainMenuComponent },
   { path: 'createBallot', component: CreateBallotComponent },
   { path: 'view-poll', component: ViewPollsComponent },
+  { path: 'edit', component: EditPollComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
