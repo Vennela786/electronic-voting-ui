@@ -10,6 +10,8 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { CreateBallotComponent } from './create-ballot/create-ballot.component'
+import { ViewPollsComponent } from './veiw-poll/viewpoll';
+import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,11 +23,12 @@ const routes: Routes = [
   { path: 'admin', component: BoardAdminComponent },
   { path: 'menu', component: MainMenuComponent },
   { path: 'createBallot', component: CreateBallotComponent },
+  { path: 'view-poll', component: ViewPollsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), BrowserModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
