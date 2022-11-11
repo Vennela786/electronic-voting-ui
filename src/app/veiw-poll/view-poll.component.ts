@@ -6,8 +6,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'view-polls',
-  templateUrl: './veiw-poll.html',
-  styleUrls: ['./veiw-poll.css']
+  templateUrl: './veiw-poll.component.html',
+  styleUrls: ['./veiw-poll.component.css']
 })
 export class ViewPollsComponent implements OnInit {
 

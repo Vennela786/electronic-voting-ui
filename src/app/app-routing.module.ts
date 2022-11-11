@@ -10,7 +10,7 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { CreateBallotComponent } from './create-ballot/create-ballot.component'
-import { ViewPollsComponent } from './veiw-poll/viewpoll';
+import { ViewPollsComponent } from './veiw-poll/view-poll.component';
 import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
