@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { PollService } from '../_services/poll.service';
+import { AppGlobals } from '../global/global-config'
+
 
 @Component({
   selector: 'view-polls',
@@ -11,6 +14,8 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 export class ViewPollsComponent implements OnInit {
 
+    constructor(private pollService : PollService, private appGlobals: AppGlobals){}
+    errorMessage = '';
    viewPollMock : any[]= [
     {
         title: "title 1",
@@ -32,7 +37,26 @@ export class ViewPollsComponent implements OnInit {
 
 ];
 
-
   ngOnInit(): void {
+    this.pollService.list(this.appGlobals.loginUserDetail.loginId).subscribe({
+        next: (res) => {
+            this.viewPollMock = [];
+          console.log('next-------',res);
+          if(res) {
+            this.viewPollMock = res;
+          }
+        },
+        error: (err) => {
+          console.log("err-----", err)
+          if(err.error.message) {
+            this.errorMessage = err.error.message
+          } else {
+            this.errorMessage = err.error.errorDefinition.message;
+          }
+        },
+        complete: () =>{
+          
+        }
+      })
   }
 }
