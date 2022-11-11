@@ -16,7 +16,7 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { CreateBallotComponent } from './create-ballot/create-ballot.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
-import { ViewPollsComponent } from './veiw-poll/viewpoll';
+import { ViewPollsComponent } from './veiw-poll/view-poll.component';
 
 import { AppGlobals } from './global/global-config';
 
