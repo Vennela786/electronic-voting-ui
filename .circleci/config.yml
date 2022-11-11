@@ -22,17 +22,17 @@ jobs:
          command: npm install
 
       - run:
-         name: Building the source code
+         name: Building source code
          command: npm run build
 
       - run:
-         name: docker build
-         command: docker build -t electronic-voting-ui .
-
-      - run:
-         name: Building the source code
+         name: Running test cases
          command: |
             npm test --no-watch --no-progress --browsers=ChromeHeadlessCI
+
+      - run:
+         name: Building docker image
+         command: docker build -t electronic-voting-ui .
 
       - store_artifacts:
          path: /home/circleci/project/dist/electronic-voting-ui/
