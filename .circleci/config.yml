@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  browser-tools: circleci/browser-tools@1.4.0
 jobs:
   build-and-test-ui:
     docker:
@@ -7,6 +9,8 @@ jobs:
           CHROME_BIN: /usr/bin/google-chrome
 
     steps:
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - checkout
 
       - setup_remote_docker:
