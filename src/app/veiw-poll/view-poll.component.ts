@@ -1,8 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
 import { PollService } from '../_services/poll.service';
 import { AppGlobals } from '../global/global-config'
 
@@ -14,7 +11,7 @@ import { AppGlobals } from '../global/global-config'
 })
 export class ViewPollsComponent implements OnInit {
 
-    constructor(private pollService : PollService, private appGlobals: AppGlobals){}
+    constructor(private pollService : PollService, private appGlobals: AppGlobals, private router: Router){}
     errorMessage = '';
    viewPollMock : any[]= [
     {
@@ -36,6 +33,10 @@ export class ViewPollsComponent implements OnInit {
     },
 
 ];
+
+update(pollId: any) {
+  this.router.navigate(['/edit-poll/' + pollId]);
+}
 
 delete(pollId: any) {
     this.pollService.delete(pollId).subscribe({
