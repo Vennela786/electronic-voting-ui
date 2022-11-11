@@ -1,32 +1,50 @@
 version: 2.1
+orbs:
+  browser-tools: circleci/browser-tools@1.4.0
 jobs:
-  build:
+  build-and-test-ui:
     docker:
-      - image: cimg/node:19.0.0
+      - image: circleci/node:latest
+        environment:
+          CHROME_BIN: /usr/bin/google-chrome
 
     steps:
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - checkout
+
+      - setup_remote_docker:
+          version: 20.10.14
+          docker_layer_caching: true
 
       - run:
          name: Installing dependencies 
          command: npm install
 
       - run:
-         name: Building the source code
+         name: Building source code
          command: npm run build
-   
-#      - run:
-#         name: Building the source code
-#         command: |
-#            sudo apt update
-#            sudo apt install snapd
-#            sudo systemctl enable snapd.service
-#            sudo systemctl start snapd.service
-#            sudo snap refresh
-#            sudo snap install chromium-browser -y
-#            export CHROME_BIN='/usr/bin/chromium-browser'
-#            npm test --no-watch --no-progress --browsers=ChromeHeadless
+
+      - run:
+         name: Running test cases
+         command: |
+            npm test --no-watch --no-progress --browsers=ChromeHeadlessCI
+
+      - run:
+         name: Building docker image
+         command: docker build -t electronic-voting-ui .
 
       - store_artifacts:
          path: /home/circleci/project/dist/electronic-voting-ui/
          destination: electronic-voting-ui
+
+
+workflows:
+  sample:
+    jobs:
+      - build-and-test-ui:
+          filters:
+            branches:
+              only:
+                - master
+                - TEC-45
