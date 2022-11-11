@@ -22,9 +22,9 @@ jobs:
          command: npm run build
 
       - run:
-        name: docker build
-        command: docker build -t electronic-voting-ui .
-   
+         name: docker build
+         command: docker build -t electronic-voting-ui .
+
       - run:
          name: Building the source code
          command: |
