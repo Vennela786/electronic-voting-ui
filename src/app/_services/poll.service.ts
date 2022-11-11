@@ -27,4 +27,48 @@ export class PollService {
                  return of(v)
             } }))
       }
+    
+    list(loginId: any): Observable<any> {
+      return this.http.get(AUTH_API + `list/${loginId}`, httpOptions).
+        pipe(mergeMap(v=> {
+          console.log("in service-----", v)
+          if(v === null){
+            return throwError('v is null');  
+          } else {
+                return of(v)
+          } }))
+    }
+
+    get(pollId: any): Observable<any> {
+      return this.http.get(AUTH_API + `get/${pollId}`, httpOptions).
+        pipe(mergeMap(v=> {
+          console.log("in service-----", v)
+          if(v === null){
+            return throwError('v is null');  
+          } else {
+                return of(v)
+          } }))
+    }
+
+    delete(pollId: any): Observable<any> {
+      return this.http.delete(AUTH_API + `delete/${pollId}`, httpOptions).
+        pipe(mergeMap(v=> {
+          console.log("in service-----", v)
+          if(v === null){
+            return throwError('v is null');  
+          } else {
+                return of(v)
+          } }))
+    }
+
+    update(pollForm:any, pollId: any): Observable<any> {
+      return this.http.patch(AUTH_API + `update/${pollId}`, JSON.stringify(pollForm), httpOptions).
+        pipe(mergeMap(v=> {
+          console.log("in service-----", v)
+          if(v === null){
+            return throwError('v is null');  
+          } else {
+               return of(v)
+          } }))
+    }
 }
