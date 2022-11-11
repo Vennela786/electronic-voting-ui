@@ -37,7 +37,25 @@ export class ViewPollsComponent implements OnInit {
 
 ];
 
-  ngOnInit(): void {
+delete(pollId: any) {
+    this.pollService.delete(pollId).subscribe({
+        next: (res) => {
+           },
+        error: (err) => {
+          console.log("err-----", err)
+          if(err.error.message) {
+            this.errorMessage = err.error.message
+          } else {
+            this.errorMessage = err.error.errorDefinition.message;
+          }
+        },
+        complete: () =>{
+          this.listPoll();
+        }
+    })
+}
+
+listPoll() {
     this.pollService.list(this.appGlobals.loginUserDetail.loginId).subscribe({
         next: (res) => {
             this.viewPollMock = [];
@@ -58,5 +76,9 @@ export class ViewPollsComponent implements OnInit {
           
         }
       })
+}
+
+  ngOnInit(): void {
+    this.listPoll();
   }
 }
