@@ -17,6 +17,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { CreateBallotComponent } from './create-ballot/create-ballot.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { ViewPollsComponent } from './veiw-poll/view-poll.component';
+import { EditPollComponent } from './edit-poll/edit-poll.component';
 
 import { AppGlobals } from './global/global-config';
 
@@ -32,7 +33,8 @@ import { AppGlobals } from './global/global-config';
     BoardUserComponent,
     CreateBallotComponent,
     MainMenuComponent,
-    ViewPollsComponent
+    ViewPollsComponent,
+    EditPollComponent
   ],
   imports: [
     BrowserModule,

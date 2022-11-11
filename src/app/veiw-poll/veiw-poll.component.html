@@ -23,7 +23,7 @@
         <td>{{item.title}}</td>
         <td>{{item.startDate}}</td>
         <td>{{item.endDate}}</td>
-        <td><button class="btn btn-link" style="color: rgb(44, 115, 237);"><em style="font-size:20px" class="fa" >&#xf040;</em></button>&nbsp;&nbsp;
+        <td><button class="btn btn-link" style="color: rgb(44, 115, 237);" (click)="update(item.pollId)"><em style="font-size:20px" class="fa" >&#xf040;</em></button>&nbsp;&nbsp;
           <button class="btn btn-link" style="color: RED;" (click)="delete(item.pollId)"><em style="font-size:20px" class="fa">&#xf014;</em>
           </button></td>
       </tr>
