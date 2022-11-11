@@ -65,7 +65,7 @@ export class EditPollComponent implements OnInit {
       next: (res) => {
         console.log('next-------',res);
         if(res) {
-          this.router.navigate(['/menu']);
+          this.router.navigate(['/view-poll']);
         }
       },
       error: (err) => {
