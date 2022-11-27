@@ -15,7 +15,7 @@ export class BallotQuestionsComponent implements OnInit {
   ngOnInit(): void {
    this.questions = [
     {
-      "question": "A semantic differential scale question asks respondents to rate a particular entity such as a product, brand, or organization on a scale with grammatically polar adjectives. For instance, to measure the power of a product in the market",
+      "question": "Rate the color of the car?",
       "options": [
         {
           "allowedResponseOptionId": 17,
