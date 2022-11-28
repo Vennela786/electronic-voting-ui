@@ -13,6 +13,7 @@ import { CreateBallotComponent } from './create-ballot/create-ballot.component'
 import { ViewPollsComponent } from './veiw-poll/view-poll.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { EditPollComponent } from './edit-poll/edit-poll.component';
+import { BallotQuestionsComponent } from './ballot-questions/ballot-questions.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'createBallot', component: CreateBallotComponent },
   { path: 'view-poll', component: ViewPollsComponent },
   { path: 'edit-poll/:pollId', component: EditPollComponent},
+  { path : 'list-questions/:pollId', component: BallotQuestionsComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
