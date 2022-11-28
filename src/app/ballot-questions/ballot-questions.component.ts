@@ -1,4 +1,4 @@
- import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
@@ -11,11 +11,27 @@ export class BallotQuestionsComponent implements OnInit {
   questions:any =[];
   constructor(public router: Router) { }
 
+  addQuestions(){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        data:""
+      }
+    }
+    this.router.navigate([`/modify-questions/12`] , navigationExtras)
+  }
 
+  modifyQuestions(list:any){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        data:list
+      }
+    }
+    this.router.navigate([`/modify-questions/12`] , navigationExtras)
+  }
   ngOnInit(): void {
    this.questions = [
     {
-      "question": "Rate the color of the car?",
+      "question": "A semantic differential scale question asks respondents to rate a particular entity such as a product, brand, or organization on a scale with grammatically polar adjectives. For instance, to measure the power of a product in the market",
       "options": [
         {
           "allowedResponseOptionId": 17,
@@ -82,4 +98,4 @@ export class BallotQuestionsComponent implements OnInit {
     }
   ]
   }
-} 
+}
