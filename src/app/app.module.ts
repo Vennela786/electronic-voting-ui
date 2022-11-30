@@ -22,7 +22,7 @@ import { EditPollComponent } from './edit-poll/edit-poll.component';
 import { AppGlobals } from './global/global-config';
 import { BallotQuestionsComponent } from './ballot-questions/ballot-questions.component';
 import { ModifyQuestionsComponent } from './modify-questions/modify-questions.component';
-import { CasteVoteComponent } from './caste-vote/caste-vote.component';
+
 
 @NgModule({
   declarations: [
@@ -39,8 +39,7 @@ import { CasteVoteComponent } from './caste-vote/caste-vote.component';
     ViewPollsComponent,
     EditPollComponent,
     BallotQuestionsComponent,
-    ModifyQuestionsComponent,
-    CasteVoteComponent
+    ModifyQuestionsComponent
   ],
   imports: [
     BrowserModule,
