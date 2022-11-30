@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'view-poll', component: ViewPollsComponent },
   { path: 'edit-poll/:pollId', component: EditPollComponent},
   { path : 'list-questions/:pollId', component: BallotQuestionsComponent},
-  { path : 'modify-questions/:pollId', component: ModifyQuestionsComponent},
+  { path : 'modify-questions/:pollId/:pollQuestionId', component: ModifyQuestionsComponent},
   { path : 'casteVote', component: CasteVoteComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
