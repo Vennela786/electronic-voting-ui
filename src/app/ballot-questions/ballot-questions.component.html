@@ -1,59 +1,43 @@
-<div class="container">
-  <ul class="responsive-table">
-    <li class="table-header">
-      <div class="col col-1">#</div>
-      <div class="col col-7">Question</div>
-      <div class="col col-2">Action</div>
-    </li>
-    <li class="mb-2 p-0">
-      <div class="col col-1"></div>
-      <div class="col col-7"></div>
-      <div class="col col-2 text-end">
-        <button
-          class="btn btn-link"
-          (click)="addQuestions()"
-          style="color: black"
-        >
-          <em style="font-size: 20px" class="fa">&#xf067;</em>
-        </button>
-      </div>
-    </li>
-    <li class="table-row" *ngFor="let list of questions">
-      <div class="col col-1" data-label="Job Id">{{ list.pollQuestionId }}</div>
-      <div class="col col-7" data-label="Customer Name">
-        <div>{{ list.question }}</div>
-        <div>
-          <div class="col col-12">
-            <form>
-              <label class="radio-inline" *ngFor="let options of list.options">
-                <input type="radio" name="optradio" checked />{{
-                  options.option
-                }}
-              </label>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="col col-2" data-label="Amount">
-        <button
-          class="btn btn-link"
-          (click)="modifyQuestions(list)"
-          style="color: rgb(44, 115, 237)"
-        >
-          <em style="font-size: 20px" class="fa">&#xf040;</em></button
-        >&nbsp;&nbsp;
-        <button class="btn btn-link" style="color: RED">
-          <em style="font-size: 20px" class="fa">&#xf014;</em>
-        </button>
-      </div>
-    </li>
-  </ul>
-
-  <div style="text-align: end">
-    <button
-      style="padding: 7px 30px; border: 1px solid #000; border-radius: 5px"
-    >
-      Back
+<div
+  style="text-align: center; font-weight: bold; font-size: 30px; padding: 20px"
+>
+  <h1>List of Poll Questions</h1>
+  <div > 
+    <button class="btn btn-link" (click)="addQuestions()" style="color: black; float: right;">
+      <em style="font-size: 21px" class="fa">&#xf067;</em>
     </button>
+  </div>
+  <div class="tbl-content">
+    <table>
+      <thead class="tbl-header">
+        <tr>
+          <th>#</th>
+          <th>Question</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let question of questions; let i = index">
+          <td>{{i+1}}</td>
+          <td>{{ question.question }}</td>
+          <td>
+            <button
+              class="btn btn-link"
+              style="color: rgb(44, 115, 237)"
+              (click)="update(question.pollQuestionId)"
+            >
+              <em style="font-size: 20px" class="fa">&#xf040;</em></button
+            >&nbsp;&nbsp;
+            <button
+              class="btn btn-link"
+              style="color: RED"
+              (click)="delete(question.pollQuestionId)"
+            >
+              <em style="font-size: 20px" class="fa">&#xf014;</em>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
