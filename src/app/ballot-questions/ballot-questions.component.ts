@@ -12,12 +12,12 @@ export class BallotQuestionsComponent implements OnInit {
   constructor(public router: Router) { }
 
   addQuestions(){
-    // let navigationExtras: NavigationExtras = {
-    //   state: {
-    //     data:""
-    //   }
-    // }
-    // this.router.navigate([`/modify-questions/12`] , navigationExtras)
+    let navigationExtras: NavigationExtras = {
+      state: {
+        data:""
+      }
+    }
+    this.router.navigate([`/modify-questions/12`] , navigationExtras)
   }
   delete(pollQuestionId: any){
 
