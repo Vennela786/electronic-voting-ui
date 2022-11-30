@@ -18,6 +18,11 @@ export class MainMenuComponent implements OnInit {
     this.router.navigate(['/createBallot']);
   }
 
+  casteVote():void{
+    console.log('CasteVote')
+    this.router.navigate(['/casteVote']);
+  }
+
   viewPolls(): void {
     //console.log('viewPolls')
     this.router.navigate(['/view-poll']);
