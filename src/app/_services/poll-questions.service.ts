@@ -26,7 +26,18 @@ export class PollQuestionsService {
           } else {
                 return of(v)
           } }))
-    }    
+    }   
+    
+    delete(pollQuestionId: any): Observable<any> {
+      return this.http.delete(AUTH_API + `delete/question/${pollQuestionId}`, httpOptions).
+        pipe(mergeMap(v=> {
+          console.log("in service-----", v)
+          if(v === null){
+            return ('v is null');  
+          } else {
+                return of(v)
+          } }))
+    }
 
     
 }

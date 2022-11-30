@@ -27,6 +27,24 @@ export class BallotQuestionsComponent implements OnInit {
     this.router.navigate([`/modify-questions/`+this.pollId+`/`+null])
   }
 
+  delete(pollQuestionId: any){
+    this.pollQuestionService.delete(pollQuestionId).subscribe({
+      next: (res) => {
+         },
+      error: (err) => {
+        console.log("err-----", err)
+        if(err.error.message) {
+          this.errorMessage = err.error.message
+        } else {
+          this.errorMessage = err.error.errorDefinition.message;
+        }
+      },
+      complete: () =>{
+        this.listPollQuestions();
+      }
+  })
+  }
+
   
   update(pollQuestionId:any) {
     this.router.navigate([`/modify-questions/`+this.pollId+`/`+pollQuestionId])
