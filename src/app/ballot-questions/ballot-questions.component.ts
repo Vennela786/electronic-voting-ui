@@ -12,12 +12,18 @@ export class BallotQuestionsComponent implements OnInit {
   constructor(public router: Router) { }
 
   addQuestions(){
-    let navigationExtras: NavigationExtras = {
-      state: {
-        data:""
-      }
-    }
-    this.router.navigate([`/modify-questions/12`] , navigationExtras)
+    // let navigationExtras: NavigationExtras = {
+    //   state: {
+    //     data:""
+    //   }
+    // }
+    // this.router.navigate([`/modify-questions/12`] , navigationExtras)
+  }
+  delete(pollQuestionId: any){
+
+  }
+  update(pollQuestionId:any){
+
   }
 
   modifyQuestions(list:any){
@@ -31,7 +37,7 @@ export class BallotQuestionsComponent implements OnInit {
   ngOnInit(): void {
    this.questions = [
     {
-      "question": "A semantic differential scale question asks respondents to rate a particular entity such as a product, brand, or organization on a scale with grammatically polar adjectives. For instance, to measure the power of a product in the market",
+      "question": "Question 1",
       "options": [
         {
           "allowedResponseOptionId": 17,
