@@ -1,78 +1,37 @@
 
-  body {
-    font-family: 'lato', sans-serif;
-  }
-  .container {
-    max-width: 1320px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  
-  h2 {
-    font-size: 26px;
-    margin: 20px 0;
-    text-align: center;
-  }
-  h2 small {
-    font-size: 0.5em;
-  }
-  
-  .responsive-table li {
-      border-radius: 3px;
-      padding: 25px 30px;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 25px;
-    }
-  
-    .responsive-table .table-header {
-      background-color: #95A5A6;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-    .responsive-table .table-row {
-      background-color: #ffffff;
-      box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
-    }
-  
-    .responsive-table .col-1 {
-      flex-basis: 4%;
-    }
-    .responsive-table .col-2 {
-      flex-basis: 65%;
-    }
-    .responsive-table .col-3 {
-      flex-basis: 19%;
-    }
-      
-    @media all and (max-width: 767px) {
-      .table-header {
-        display: none;
-      }
-      /* .table-row{
-        
-      } */
-      li {
-        display: block;
-      }
-      .col {
-        
-        flex-basis: 100%;
-        
-      }
-      .col {
-        display: flex;
-        padding: 10px 0;
-        
-      }
-      .col::before {
-          color: #6C7A89;
-          padding-right: 10px;
-          content: attr(data-label);
-          flex-basis: 50%;
-          text-align: right;
-        }
-    }
+h1{
+  font-size: 30px;
+  color: rgb(10, 9, 9);
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 15px;
+}
+table{
+  width:100%;
+  table-layout: fixed;
+}
+.tbl-header{
+  /* background-color: rgba(37, 43, 221, 0.3); */
+  background-color: #d4ebff;
+  text-align: center;
+ }
+th{
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 14px;
+  color: rgb(35, 72, 237);
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 3px;
+}
+td{
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: rgb(16, 15, 15);
+  border-bottom: solid 1px rgba(192, 26, 26, 0.1);
+}
