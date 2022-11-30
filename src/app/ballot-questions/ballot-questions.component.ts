@@ -26,8 +26,12 @@ export class BallotQuestionsComponent implements OnInit {
     this.router.navigate([`/modify-questions/`+this.pollId+`/`+pollQuestionId])
   }
 
+
   listPollQuestions() {
-    }
+  }
+  delete(pollQuestionId: any){
+    
+  }
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => this.pollId = params['pollId']);
     this.listPollQuestions();
