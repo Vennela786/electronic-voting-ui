@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, NavigationStart, Params, Router } from '@angular/router';
-import { PollQuestionsService } from '../_services/poll-questions.service';
 
 @Component({
   selector: 'app-modify-questions',
@@ -23,8 +22,7 @@ export class ModifyQuestionsComponent implements OnInit {
     options:this.option()
     
   });
-  constructor(public activatedRoute: ActivatedRoute, public router: Router,private fb:FormBuilder, private route: ActivatedRoute, 
-    private pollQuestionsService: PollQuestionsService) {
+  constructor(public activatedRoute: ActivatedRoute, public router: Router,private fb:FormBuilder, private route: ActivatedRoute) {
     // this.data = this.router.getCurrentNavigation();
     // let temp = this.data.extras.state;
     // this.QuestionData = temp.data.question;
