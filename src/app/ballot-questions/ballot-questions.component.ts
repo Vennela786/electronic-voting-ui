@@ -19,11 +19,6 @@ export class BallotQuestionsComponent implements OnInit {
     private route: ActivatedRoute){}
 
   addQuestions(){
-    // let navigationExtras: NavigationExtras = {
-    //   state: {
-    //     data:""
-    //   }
-    // }
     this.router.navigate([`/modify-questions/`+this.pollId+`/`+null])
   }
 
@@ -75,28 +70,4 @@ export class BallotQuestionsComponent implements OnInit {
     this.route.params.subscribe((params: Params) => this.pollId = params['pollId']);
     this.listPollQuestions();
   }
-  // addQuestions(){
-  //   let navigationExtras: NavigationExtras = {
-  //     state: {
-  //       data:""
-  //     }
-  //   }
-  //   this.router.navigate([`/modify-questions/12`] , navigationExtras)
-  // }
-  // delete(pollQuestionId: any){
-
-  // }
-  // update(pollQuestionId:any){
-
-  // }
-
-  // modifyQuestions(list:any){
-  //   let navigationExtras: NavigationExtras = {
-  //     state: {
-  //       data:list
-  //     }
-  //   }
-  //   this.router.navigate([`/modify-questions/12`] , navigationExtras)
-  // }
-  
 }
