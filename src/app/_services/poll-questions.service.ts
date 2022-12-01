@@ -39,5 +39,38 @@ export class PollQuestionsService {
           } }))
     }
 
+    create(pollQuestionForm:any, pollId: any): Observable<any> {
+      return this.http.post(AUTH_API + `create/${pollId}`, JSON.stringify(pollQuestionForm), httpOptions).
+        pipe(mergeMap(v=> {
+          console.log("in service-----", v)
+          if(v === null){
+            return throwError('v is null');  
+          } else {
+               return of(v)
+          } }))
+    }
+
+    get(pollQuestionId: any): Observable<any> {
+      return this.http.get(AUTH_API + `get/${pollQuestionId}`, httpOptions).
+        pipe(mergeMap(v=> {
+          console.log("in service-----", v)
+          if(v === null){
+            return ('v is null');  
+          } else {
+                return of(v)
+          } }))
+    }
+
+    update(pollQuestionForm:any, pollQuestionId: any): Observable<any> {
+      return this.http.patch(AUTH_API + `update/question/${pollQuestionId}`, JSON.stringify(pollQuestionForm), httpOptions).
+        pipe(mergeMap(v=> {
+          console.log("in service-----", v)
+          if(v === null){
+            return ('v is null');  
+          } else {
+               return of(v)
+          } }))
+    }
+
     
 }

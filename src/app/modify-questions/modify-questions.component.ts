@@ -34,10 +34,45 @@ export class ModifyQuestionsComponent implements OnInit {
    }
 
    getPollQuestion() {
-    
+    this.pollQuestionsService.get(this.pollQuestionId).subscribe({
+      next: (res) => {
+        console.log('next-------',res);
+        if(res) {
+          this.setPollQuestionForm(res);
+        }
+      },
+      error: (err) => {
+        console.log("err-----", err)
+        this.isPollQuestionUpdateFailed = true;
+        if(err.error.message) {
+          this.errorMessage = err.error.message
+        } else {
+          this.errorMessage = err.error.errorDefinition.message;
+        }
+      },
+      complete: () =>{
+        console.log("modifyQuestionForm-------", this.modifyQuestionForm)
+      }
+    })
   }
 
-  
+  setPollQuestionForm(pollQuestion: any) {
+    this.modifyQuestionForm = new FormGroup({
+      question:new FormControl(pollQuestion.question),
+      pollQuestionId: new FormControl(pollQuestion.pollQuestionId),
+      options:
+        this.setOptions(pollQuestion.options)
+      
+    });
+  }
+
+  setOptions(options: any[]) {
+    let optionList: FormArray = this.fb.array([]);
+    for(let i=0; i<options.length; i++) {
+      optionList.push(this.setOption(options[i]));
+    }
+    return optionList;
+  }
 
   setOption(option: any) {
     return this.fb.group({
@@ -71,11 +106,54 @@ export class ModifyQuestionsComponent implements OnInit {
   }
 
   onClear() {
-
+    this.modifyQuestionForm.reset()
   }
 
   onSubmit() {
-    
+    if(this.modifyQuestionForm.controls['pollQuestionId'] == null) {
+      this.pollQuestionsService.create(this.modifyQuestionForm.value, this.pollId).subscribe({
+        next: (res) => {
+          console.log('next-------',res);
+          if(res) {
+            this.router.navigate(['/menu']);
+          }
+        },
+        error: (err) => {
+          console.log("err-----", err)
+          this.isPollQuestionUpdateFailed = true;
+          if(err.error.message) {
+            this.errorMessage = err.error.message
+          } else {
+            this.errorMessage = err.error.errorDefinition.message;
+          }
+        },
+        complete: () =>{
+          this.modifyQuestionForm.reset()
+        }
+      })
+    } else {
+      this.pollQuestionsService.update(this.modifyQuestionForm.value, this.modifyQuestionForm.controls['pollQuestionId'].value).subscribe({
+        next: (res) => {
+          console.log('next-------',res);
+          if(res) {
+            this.router.navigate(['/menu']);
+          }
+        },
+        error: (err) => {
+          console.log("err-----", err)
+          this.isPollQuestionUpdateFailed = true;
+          if(err.error.message) {
+            this.errorMessage = err.error.message
+          } else {
+            this.errorMessage = err.error.errorDefinition.message;
+          }
+        },
+        complete: () =>{
+          this.modifyQuestionForm.reset()
+        }
+      })
+    }
+  }
   }
 
   // get options() {
@@ -87,7 +165,4 @@ export class ModifyQuestionsComponent implements OnInit {
   //   const control=new FormControl(null,Validators.required);
   //   (<FormArray>this.modifyQuestionForm.get('options')).push(control);
   // }
-
-  
-}
 
