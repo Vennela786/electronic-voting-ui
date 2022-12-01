@@ -12,7 +12,6 @@ table{
   table-layout: fixed;
 }
 .tbl-header{
-  /* background-color: rgba(37, 43, 221, 0.3); */
   background-color: #d4ebff;
   text-align: center;
  }
