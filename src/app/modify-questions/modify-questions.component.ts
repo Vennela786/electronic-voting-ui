@@ -70,6 +70,14 @@ export class ModifyQuestionsComponent implements OnInit {
     });
   }
 
+  onClear() {
+
+  }
+
+  onSubmit() {
+    
+  }
+
   // get options() {
   //   return this.modifyQuestionForm.controls["options"] as FormArray;
   // }
