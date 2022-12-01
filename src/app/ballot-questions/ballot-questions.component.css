@@ -34,3 +34,9 @@ td{
   color: rgb(16, 15, 15);
   border-bottom: solid 1px rgba(192, 26, 26, 0.1);
 }
+.add-voter {
+  cursor: pointer;
+  float: right;
+  color: rgb(25 136 235);
+  font-weight: bold;
+}

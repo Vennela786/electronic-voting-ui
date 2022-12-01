@@ -6,6 +6,21 @@
     <button class="btn btn-link" (click)="addQuestions()" style="color: black; float: right;">
       <em style="font-size: 21px" class="fa">&#xf067;</em>
     </button>
+    <div>
+      <button class="btn btn-default add-voter" id="add-voter"
+          (click)="getVoters()">
+          Add Voter
+      </button>
+      <ng-template [ngIf]="voters.length > 0">
+      <select id="search-ibbi-assetclass" class="form-control" [(ngModel)]="partyId" 
+        (ngModelChange)="addVoter($event)" style="width: 20%; float:right">
+          <option *ngFor="let voter of voters" [ngValue]="voter.partyId">
+              {{voter.firstName}}
+          </option>
+      </select>
+    </ng-template>
+  </div>
+  
   </div>
   <div class="tbl-content">
     <table>
@@ -39,5 +54,27 @@
         </tr>
       </tbody>
     </table>
+  </div>
+  <br/>
+  <div class="form-group">
+    <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="isAddVoterFailed"
+      style="font-size: large"
+    >
+      {{ errorMessage }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div
+      class="alert alert-success"
+      role="alert"
+      *ngIf="isAddVoterSuccess"
+      style="font-size: large"
+    >
+      {{ successMessage }}
+    </div>
   </div>
 </div>
