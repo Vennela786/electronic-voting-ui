@@ -18,8 +18,8 @@ export class ModifyQuestionsComponent implements OnInit {
   isPollQuestionUpdateFailed = false;
 
   modifyQuestionForm: any = new FormGroup({
-    question:new FormControl(''),
-    pollQuestionId: new FormControl(''),
+    question:new FormControl(),
+    pollQuestionId: new FormControl(),
     options:this.option()
     
   });
@@ -86,7 +86,8 @@ export class ModifyQuestionsComponent implements OnInit {
     console.log("sdvs");
     this.route.params.subscribe((params: Params) => this.pollId = params['pollId']);
     this.route.params.subscribe((params: Params) => this.pollQuestionId = params['pollQuestionId']);
-    if(this.pollQuestionId != null) {
+    console.log("this.pollQuestionId-------", this.pollQuestionId)
+    if(this.pollQuestionId != 'null') {
       this.getPollQuestion();
     }
   }
@@ -110,7 +111,8 @@ export class ModifyQuestionsComponent implements OnInit {
   }
 
   onSubmit() {
-    if(this.modifyQuestionForm.controls['pollQuestionId'] == null) {
+    console.log("data in submit---------", this.modifyQuestionForm.controls['pollQuestionId'].value)
+    if(this.modifyQuestionForm.controls['pollQuestionId'].value == undefined || this.modifyQuestionForm.controls['pollQuestionId'].value == null ) {
       this.pollQuestionsService.create(this.modifyQuestionForm.value, this.pollId).subscribe({
         next: (res) => {
           console.log('next-------',res);
