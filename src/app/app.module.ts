@@ -16,6 +16,8 @@ import { EditPollComponent } from './edit-poll/edit-poll.component';
 import { AppGlobals } from './global/global-config';
 import { BallotQuestionsComponent } from './ballot-questions/ballot-questions.component';
 import { ModifyQuestionsComponent } from './modify-questions/modify-questions.component';
+import { CasteVoteComponent } from './caste-vote/caste-vote.component';
+import { VoteComponent } from './vote/vote.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { ModifyQuestionsComponent } from './modify-questions/modify-questions.co
     ViewPollsComponent,
     EditPollComponent,
     BallotQuestionsComponent,
-    ModifyQuestionsComponent
+    ModifyQuestionsComponent,
+    CasteVoteComponent,
+    VoteComponent
   ],
   imports: [
     BrowserModule,

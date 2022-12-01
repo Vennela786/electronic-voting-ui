@@ -10,6 +10,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { EditPollComponent } from './edit-poll/edit-poll.component';
 import { BallotQuestionsComponent } from './ballot-questions/ballot-questions.component';
 import { ModifyQuestionsComponent } from './modify-questions/modify-questions.component';
+import { CasteVoteComponent } from './caste-vote/caste-vote.component';
+import { VoteComponent } from './vote/vote.component';
 
 
 const routes: Routes = [
@@ -22,6 +24,8 @@ const routes: Routes = [
   { path: 'edit-poll/:pollId', component: EditPollComponent},
   { path : 'list-questions/:pollId', component: BallotQuestionsComponent},
   { path : 'modify-questions/:pollId/:pollQuestionId', component: ModifyQuestionsComponent},
+  { path : 'casteVote', component: CasteVoteComponent},
+  { path : 'casteVote/:pollId', component: VoteComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
