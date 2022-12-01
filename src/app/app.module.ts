@@ -18,6 +18,7 @@ import { BallotQuestionsComponent } from './ballot-questions/ballot-questions.co
 import { ModifyQuestionsComponent } from './modify-questions/modify-questions.component';
 import { CasteVoteComponent } from './caste-vote/caste-vote.component';
 import { VoteComponent } from './vote/vote.component';
+import { ResultsComponent } from './results/results.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { VoteComponent } from './vote/vote.component';
     BallotQuestionsComponent,
     ModifyQuestionsComponent,
     CasteVoteComponent,
-    VoteComponent
+    VoteComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,

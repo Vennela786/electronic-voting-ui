@@ -12,6 +12,7 @@ import { BallotQuestionsComponent } from './ballot-questions/ballot-questions.co
 import { ModifyQuestionsComponent } from './modify-questions/modify-questions.component';
 import { CasteVoteComponent } from './caste-vote/caste-vote.component';
 import { VoteComponent } from './vote/vote.component';
+import { ResultsComponent } from './results/results.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path : 'modify-questions/:pollId/:pollQuestionId', component: ModifyQuestionsComponent},
   { path : 'casteVote', component: CasteVoteComponent},
   { path : 'casteVote/:pollId', component: VoteComponent},
+  { path : 'results', component: ResultsComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
