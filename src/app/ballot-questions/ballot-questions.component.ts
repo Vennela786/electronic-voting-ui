@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Params, Router, ActivatedRoute } from '@angular/router';
+import { NavigationExtras, Router, ActivatedRoute, Params } from '@angular/router';
+import { AppGlobals } from '../global/global-config';
+import { PollQuestionsService } from '../_services/poll-questions.service';
+
 
 @Component({
   selector: 'app-ballot-questions',
@@ -10,15 +13,31 @@ export class BallotQuestionsComponent implements OnInit {
 
   questions:any =[];
   pollId: any;
-  constructor(public router: Router, private route:ActivatedRoute ) { }
+  errorMessage = '';
+
+  constructor(private pollQuestionService : PollQuestionsService, private appGlobals: AppGlobals, private router: Router, 
+    private route: ActivatedRoute){}
 
   addQuestions(){
-    // let navigationExtras: NavigationExtras = {
-    //   state: {
-    //     data:""
-    //   }
-    // }
     this.router.navigate([`/modify-questions/`+this.pollId+`/`+null])
+  }
+
+  delete(pollQuestionId: any){
+    this.pollQuestionService.delete(pollQuestionId).subscribe({
+      next: (res) => {
+         },
+      error: (err) => {
+        console.log("err-----", err)
+        if(err.error.message) {
+          this.errorMessage = err.error.message
+        } else {
+          this.errorMessage = err.error.errorDefinition.message;
+        }
+      },
+      complete: () =>{
+        this.listPollQuestions();
+      }
+  })
   }
 
   
@@ -27,33 +46,28 @@ export class BallotQuestionsComponent implements OnInit {
   }
 
   listPollQuestions() {
-    }
+    this.pollQuestionService.list(this.pollId).subscribe({
+        next: (res) => {
+            this.questions = [];
+          console.log('next-------',res);
+          if(res) {
+            this.questions = res;
+          }
+        },
+        error: (err) => {
+          console.log("err-----", err)
+          if(err.error.message) {
+            this.errorMessage = err.error.message
+          } else {
+            this.errorMessage = err.error.errorDefinition.message;
+          }
+        },
+        complete: () =>{}
+      })
+}
+
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => this.pollId = params['pollId']);
     this.listPollQuestions();
   }
-  // addQuestions(){
-  //   let navigationExtras: NavigationExtras = {
-  //     state: {
-  //       data:""
-  //     }
-  //   }
-  //   this.router.navigate([`/modify-questions/12`] , navigationExtras)
-  // }
-  // delete(pollQuestionId: any){
-
-  // }
-  // update(pollQuestionId:any){
-
-  // }
-
-  // modifyQuestions(list:any){
-  //   let navigationExtras: NavigationExtras = {
-  //     state: {
-  //       data:list
-  //     }
-  //   }
-  //   this.router.navigate([`/modify-questions/12`] , navigationExtras)
-  // }
-  
 }
