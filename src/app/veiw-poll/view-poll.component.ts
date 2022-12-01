@@ -38,6 +38,10 @@ update(pollId: any) {
   this.router.navigate(['/edit-poll/' + pollId]);
 }
 
+addQuestionare(pollId:any){
+  this.router.navigate(['/list-questions/' + pollId]);
+}
+
 delete(pollId: any) {
     this.pollService.delete(pollId).subscribe({
         next: (res) => {

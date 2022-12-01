@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { CommonModule } from '@angular/common'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -20,6 +20,9 @@ import { ViewPollsComponent } from './veiw-poll/view-poll.component';
 import { EditPollComponent } from './edit-poll/edit-poll.component';
 
 import { AppGlobals } from './global/global-config';
+import { BallotQuestionsComponent } from './ballot-questions/ballot-questions.component';
+import { ModifyQuestionsComponent } from './modify-questions/modify-questions.component';
+import { CasteVoteComponent } from './caste-vote/caste-vote.component';
 
 @NgModule({
   declarations: [
@@ -34,12 +37,16 @@ import { AppGlobals } from './global/global-config';
     CreateBallotComponent,
     MainMenuComponent,
     ViewPollsComponent,
-    EditPollComponent
+    EditPollComponent,
+    BallotQuestionsComponent,
+    ModifyQuestionsComponent,
+    CasteVoteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CommonModule,
     HttpClientModule,
     ReactiveFormsModule
   ],

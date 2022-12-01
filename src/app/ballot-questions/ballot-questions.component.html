@@ -1,43 +1,39 @@
 <div
   style="text-align: center; font-weight: bold; font-size: 30px; padding: 20px"
 >
-  <h1>List of polls</h1>
+  <h1>List of Poll Questions</h1>
+  <div > 
+    <button class="btn btn-link" (click)="addQuestions()" style="color: black; float: right;">
+      <em style="font-size: 21px" class="fa">&#xf067;</em>
+    </button>
+  </div>
   <div class="tbl-content">
     <table>
       <thead class="tbl-header">
         <tr>
-          <th>Title</th>
-          <th>Start Date</th>
-          <th>End Date</th>
+          <th>#</th>
+          <th>Question</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of viewPollMock">
-          <td>{{ item.title }}</td>
-          <td>{{ item.startDate }}</td>
-          <td>{{ item.endDate }}</td>
+        <tr *ngFor="let question of questions; let i = index">
+          <td>{{i+1}}</td>
+          <td>{{ question.question }}</td>
           <td>
             <button
               class="btn btn-link"
               style="color: rgb(44, 115, 237)"
-              (click)="update(item.pollId)"
+              (click)="update(question.pollQuestionId)"
             >
               <em style="font-size: 20px" class="fa">&#xf040;</em></button
             >&nbsp;&nbsp;
             <button
               class="btn btn-link"
               style="color: RED"
-              (click)="delete(item.pollId)"
+              (click)="delete(question.pollQuestionId)"
             >
               <em style="font-size: 20px" class="fa">&#xf014;</em>
-            </button>
-            <button
-              class="btn btn-link"
-              style="color: black"
-              (click)="addQuestionare(item.pollId)"
-            >
-              <em style="font-size: 20px" class="fa">&#xf067;</em>
             </button>
           </td>
         </tr>
