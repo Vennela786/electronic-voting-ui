@@ -60,4 +60,15 @@ export class VoterService {
                return of(v)
           } }))
     }
+
+    voteResult(loginId:any): Observable<any> {
+      return this.http.post(AUTH_API + `vote-result/${loginId}`, JSON.stringify({}), httpOptions).
+        pipe(mergeMap(v=> {
+          console.log("in service-----", v)
+          if(v === null){
+            return throwError('v is null');  
+          } else {
+               return of(v)
+          } }))
+    }
 }

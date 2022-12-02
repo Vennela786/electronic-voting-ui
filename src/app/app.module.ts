@@ -19,6 +19,7 @@ import { ModifyQuestionsComponent } from './modify-questions/modify-questions.co
 import { CasteVoteComponent } from './caste-vote/caste-vote.component';
 import { VoteComponent } from './vote/vote.component';
 import { ResultsComponent } from './results/results.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { ResultsComponent } from './results/results.component';
     FormsModule,
     CommonModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgChartsModule
   ],
   providers: [authInterceptorProviders, AppGlobals],
   bootstrap: [AppComponent]
