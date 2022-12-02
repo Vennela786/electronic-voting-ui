@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PollService } from '../_services/poll.service';
 import { AppGlobals } from '../global/global-config'
+import { VoterService } from '../_services/voter.service';
 
 
 @Component({
@@ -11,33 +12,15 @@ import { AppGlobals } from '../global/global-config'
 })
 export class CasteVoteComponent implements OnInit {
 
-  constructor(private pollService : PollService, private appGlobals: AppGlobals, private router: Router){}
+  constructor(private voterService : VoterService, private appGlobals: AppGlobals, private router: Router){}
     errorMessage = '';
-   viewPollMock : any[]= [
-    {
-        title: "title 1",
-        startDate: "2022-11-10",
-        endDate: "2022-11-10",
-    }, {
-        title: "title 2",
-        startDate: "2022-11-10",
-        endDate: "2022-11-10",
-    }, {
-        title: "title 3",
-        startDate: "2022-11-10",
-        endDate: "2022-11-10",
-    }, {
-        title: "title 3",
-        startDate: "2022-11-10",
-        endDate: "2022-11-10",
-    },
-
-];
+   viewPollMock : any[]= [];
+   
 vote(pollId:any){
   this.router.navigate(['/casteVote/' + pollId]);
 }
 listPoll() {
-  this.pollService.list(this.appGlobals.loginUserDetail.loginId).subscribe({
+  this.voterService.listPoll(this.appGlobals.loginUserDetail.loginId).subscribe({
       next: (res) => {
           this.viewPollMock = [];
         console.log('next-------',res);

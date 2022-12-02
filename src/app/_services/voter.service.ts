@@ -38,4 +38,26 @@ export class VoterService {
                 return of(v)
           } }))
     }
+
+    listPoll(loginId: any): Observable<any> {
+      return this.http.get(AUTH_API + `list-poll/${loginId}`, httpOptions).
+        pipe(mergeMap(v=> {
+          console.log("in service-----", v)
+          if(v === null){
+            return throwError('v is null');  
+          } else {
+                return of(v)
+          } }))
+    }
+
+    castVoter(questionForm:any[], loginId:any, pollId: any): Observable<any> {
+      return this.http.post(AUTH_API + `cast-vote/${loginId}/${pollId}`, JSON.stringify(questionForm), httpOptions).
+        pipe(mergeMap(v=> {
+          console.log("in service-----", v)
+          if(v === null){
+            return throwError('v is null');  
+          } else {
+               return of(v)
+          } }))
+    }
 }
