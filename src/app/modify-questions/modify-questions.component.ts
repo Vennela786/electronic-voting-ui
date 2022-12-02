@@ -25,12 +25,6 @@ export class ModifyQuestionsComponent implements OnInit {
   });
   constructor(public activatedRoute: ActivatedRoute, public router: Router,private fb:FormBuilder, private route: ActivatedRoute, 
     private pollQuestionsService: PollQuestionsService) {
-    // this.data = this.router.getCurrentNavigation();
-    // let temp = this.data.extras.state;
-    // this.QuestionData = temp.data.question;
-    // this.OptionsData = this.data.extras.state.data.options;
-    // console.log(this.data.extras.state.data , this.data.extras.state.data.question);
-    
    }
 
    getPollQuestion() {
@@ -157,14 +151,4 @@ export class ModifyQuestionsComponent implements OnInit {
     }
   }
   }
-
-  // get options() {
-  //   return this.modifyQuestionForm.controls["options"] as FormArray;
-  // }
-
-  // onAddOptions(){
-
-  //   const control=new FormControl(null,Validators.required);
-  //   (<FormArray>this.modifyQuestionForm.get('options')).push(control);
-  // }
 
