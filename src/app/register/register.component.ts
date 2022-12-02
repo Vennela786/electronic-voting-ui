@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
     // this.signUpForm!:FormGroup;
     this.formBuilder();
   }
-
+//on successful creation navigate to main menu onclick of login
   onSubmit(): void {
     console.log('in onsubmit')
     let data = this.formBuilder();

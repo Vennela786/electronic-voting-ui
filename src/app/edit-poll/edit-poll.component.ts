@@ -22,7 +22,7 @@ export class EditPollComponent implements OnInit {
 
   errorMessage = '';
   isPollUpdateFailed = false;
-
+//Getting the polls from api
   getPoll() {
     console.log("pollID---", this.pollId)
     this.pollService.get(this.pollId).subscribe({
@@ -44,7 +44,7 @@ export class EditPollComponent implements OnInit {
       complete: () =>{}
     })
   }
-
+//Updation of ballot
   setBalletForm(res: any) {
     this.updateBalletform = new FormGroup({
       title: new FormControl(res.title),
@@ -54,12 +54,12 @@ export class EditPollComponent implements OnInit {
       pollId: new FormControl(res.pollId)
     })
   }
-
+//Clear the ballot updation onclick of cancel
   onClear(e: any) {
     if (e) e.preventDefault()
     this.getPoll();
   }
-
+//Update the ballot details onclick of submit
   onSubmit() {
     this.pollService.update(this.updateBalletform.value, this.pollId).subscribe({
       next: (res) => {
