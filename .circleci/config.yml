@@ -30,10 +30,10 @@ jobs:
          command: npm run build
 
       # running test cases in headless mode
-      - run:
-         name: Running test cases
-         command: |
-            npm test --no-watch --no-progress --browsers=ChromeHeadlessCI
+      #- run:
+      #   name: Running test cases
+      #   command: |
+      #      npm test --no-watch --no-progress --browsers=ChromeHeadlessCI
 
       # building dockerfile
       - run:
