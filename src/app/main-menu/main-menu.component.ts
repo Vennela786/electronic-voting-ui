@@ -12,7 +12,7 @@ export class MainMenuComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+ //Added navigation to edit,create,caste and results components
   createBallot(): void {
     console.log('createBallot')
     this.router.navigate(['/createBallot']);
@@ -29,7 +29,6 @@ export class MainMenuComponent implements OnInit {
 
 
   viewPolls(): void {
-    //console.log('viewPolls')
     this.router.navigate(['/view-poll']);
   }
 

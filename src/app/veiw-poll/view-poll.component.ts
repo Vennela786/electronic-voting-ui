@@ -9,6 +9,8 @@ import { AppGlobals } from '../global/global-config'
   templateUrl: './veiw-poll.component.html',
   styleUrls: ['./veiw-poll.component.css']
 })
+
+//created the mock data in json to reflect in ui
 export class ViewPollsComponent implements OnInit {
 
     constructor(private pollService : PollService, private appGlobals: AppGlobals, private router: Router){}
@@ -41,7 +43,7 @@ update(pollId: any) {
 addQuestionare(pollId:any){
   this.router.navigate(['/list-questions/' + pollId]);
 }
-
+//delete the pollid 
 delete(pollId: any) {
     this.pollService.delete(pollId).subscribe({
         next: (res) => {
@@ -59,7 +61,7 @@ delete(pollId: any) {
         }
     })
 }
-
+//function to list the total polls created
 listPoll() {
     this.pollService.list(this.appGlobals.loginUserDetail.loginId).subscribe({
         next: (res) => {

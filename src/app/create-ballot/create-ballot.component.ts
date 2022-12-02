@@ -26,7 +26,7 @@ export class CreateBallotComponent implements OnInit {
   ngOnInit(): void {
     this.formBuilder();
   }
-
+//Creation of Form for the Ballot
   formBuilder() {
     const { title, description, startDate, endDate } = this.balletform;
     return (this.fb.group({
@@ -36,7 +36,7 @@ export class CreateBallotComponent implements OnInit {
       endDate: endDate
     }));
   }
-
+//Clear the details onclick of Cancel
   onClear(e: any) {
     if (e) e.preventDefault()
     this.balletform.reset({
@@ -47,6 +47,7 @@ export class CreateBallotComponent implements OnInit {
     })
     this.router.navigate(['/menu']);
   }
+  //Log the created Ballot and on successful creation navigate to main menu
   onSubmit() {
     this.pollService.create(this.balletform.value, this.appGlobals.loginUserDetail.loginId).subscribe({
       next: (res) => {

@@ -16,9 +16,11 @@ export class CasteVoteComponent implements OnInit {
     errorMessage = '';
    viewPollMock : any[]= [];
    
+//Navigate to CasteVoteComponent
 vote(pollId:any){
   this.router.navigate(['/casteVote/' + pollId]);
 }
+//Listing the total polls eligible to Cate vote
 listPoll() {
   this.voterService.listPoll(this.appGlobals.loginUserDetail.loginId).subscribe({
       next: (res) => {

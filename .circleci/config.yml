@@ -9,27 +9,33 @@ jobs:
           CHROME_BIN: /usr/bin/google-chrome
 
     steps:
+      # checking out source code from git and installing chrome driver for running testcases in headless mode
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - checkout
 
+      # creating a remote environment for docker to run Dockerfile
       - setup_remote_docker:
           version: 20.10.14
           docker_layer_caching: true
 
+      # installing nodeJS dependencies to node_modules folder 
       - run:
          name: Installing dependencies 
          command: npm install
 
+      # building source code to produce dist folder
       - run:
          name: Building source code
          command: npm run build
 
+      # running test cases in headless mode
       - run:
          name: Running test cases
          command: |
             npm test --no-watch --no-progress --browsers=ChromeHeadlessCI
 
+      # building dockerfile
       - run:
          name: Building docker image
          command: docker build -t electronic-voting-ui .
@@ -39,6 +45,7 @@ jobs:
          destination: electronic-voting-ui
 
 
+# restricting pipeline execution only to master branch
 workflows:
   sample:
     jobs:
@@ -47,4 +54,3 @@ workflows:
             branches:
               only:
                 - main
-                - TEC-45

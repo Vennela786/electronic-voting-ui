@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       this.roles = this.tokenStorage.getUser().roles;
     }
   }
-
+//Updation of login details
   onSubmit(): void {
     console.log('in onsubmit')
     let loginData = this.formBuilder();
