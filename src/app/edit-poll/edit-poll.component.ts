@@ -58,6 +58,7 @@ export class EditPollComponent implements OnInit {
   onClear(e: any) {
     if (e) e.preventDefault()
     this.getPoll();
+    this.router.navigate(['/view-poll']);
   }
 //Update the ballot details onclick of submit
   onSubmit() {

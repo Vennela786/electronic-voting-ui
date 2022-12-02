@@ -45,6 +45,7 @@ export class CreateBallotComponent implements OnInit {
       "startDate": "",
       "endDate": "",
     })
+    this.router.navigate(['/menu']);
   }
   //Log the created Ballot and on successful creation navigate to main menu
   onSubmit() {

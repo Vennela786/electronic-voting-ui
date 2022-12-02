@@ -102,6 +102,7 @@ export class ModifyQuestionsComponent implements OnInit {
 
   onClear() {
     this.modifyQuestionForm.reset()
+    this.router.navigate(['/list-questions/' + this.pollId])
   }
 
   onSubmit() {
@@ -111,7 +112,7 @@ export class ModifyQuestionsComponent implements OnInit {
         next: (res) => {
           console.log('next-------',res);
           if(res) {
-            this.router.navigate(['/menu']);
+            this.router.navigate(['/list-questions/' + this.pollId])
           }
         },
         error: (err) => {
@@ -132,7 +133,8 @@ export class ModifyQuestionsComponent implements OnInit {
         next: (res) => {
           console.log('next-------',res);
           if(res) {
-            this.router.navigate(['/menu']);
+            // this.router.navigate(['/menu']);
+            this.router.navigate(['/list-questions/' + this.pollId])
           }
         },
         error: (err) => {
