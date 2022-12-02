@@ -1,25 +1,23 @@
+<div
+  style="text-align: center; font-weight: bold; font-size: 30px; padding: 20px"
+>
+  <h1>Cast Vote</h1>
+</div>
 <div class="container">
   <ul class="responsive-table">
-    <li class="table-header">
-      <div class="col col-1">#</div>
-      <div class="col col-7">Question</div>
-    </li>
-    <li class="mb-2 p-0">
-      <div class="col col-1"></div>
-      <div class="col col-7"></div>
-      <div class="col col-2 text-end"></div>
-    </li>
-    <li class="table-row" *ngFor="let list of questions">
-      <div class="col col-1" data-label="Job Id">{{ list.pollQuestionId }}</div>
-      <div class="col col-7" data-label="Customer Name">
+    <li class="table-row" *ngFor="let list of questions; let i = index">
+      <div class="col col-1" data-label="id">{{ i + 1 }}</div>
+      <div class="col col-11" data-label="question">
         <div>{{ list.question }}</div>
+        <br />
         <div>
           <div class="col col-12">
             <form>
               <label class="radio-inline" *ngFor="let options of list.options">
-                <input type="radio" name="optradio" checked />{{
+                <input type="radio" name="optradio" checked />&nbsp;{{
                   options.option
                 }}
+                &nbsp;&nbsp;
               </label>
             </form>
           </div>
