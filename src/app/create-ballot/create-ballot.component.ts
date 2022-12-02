@@ -45,6 +45,7 @@ export class CreateBallotComponent implements OnInit {
       "startDate": "",
       "endDate": "",
     })
+    this.router.navigate(['/menu']);
   }
   onSubmit() {
     this.pollService.create(this.balletform.value, this.appGlobals.loginUserDetail.loginId).subscribe({
